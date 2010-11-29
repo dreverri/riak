@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>riak (riak_kv) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>riak</h1>
+<h2 class="modsummary" />
+<div class="description">
+</div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="client_connect/1">client_connect(Node::node()) -&gt; {ok, Client::riak_client()} | {error, timeout}</h3>
+
+
+<div class="description"><span id="client_connect-1"> </span>
+<p>Equivalent to <a href="#client_connect-2" class="seealso">client_connect(Node, undefined)</a>.</p>
+</div></div>
+<div class="function">
+<h3 id="client_connect/1-1">client_connect(Node::node(), ClientId::binary() | undefined) -&gt; {ok, Client::riak_client} | {error, timeout}</h3>
+
+
+<div class="description"><span id="client_connect-2"> </span>
+
+<p>The usual way to get a client.  Timeout often means either a bad
+       cookie or a poorly-connected distributed erlang network.
+       ClientId should be a 32-bit binary.  If it is not, a
+       32-bit binary will be created from ClientId by phash2/1.
+       If ClientId is the atom 'undefined', a random ClientId will
+       be chosen.</p>
+</div></div>
+<div class="function">
+<h3 id="client_test/1">client_test(NodeStr) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="client_test-1"> </span>
+
+<p>Validate that a specified node is accessible and functional.
+ </p>
+</div></div>
+<div class="function">
+<h3 id="code_hash/0">code_hash() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="code_hash-0"> </span>
+ </div></div>
+<div class="function">
+<h3 id="get_app_env/0">get_app_env() -&gt; [{Key::atom(), Value::term()}]</h3>
+
+
+<div class="description"><span id="get_app_env-0"> </span>
+
+<p>Retrieve all values set in riak's configuration file.
+       Returns a list of Key/Value pairs.</p>
+</div></div>
+<div class="function">
+<h3 id="get_app_env/1">get_app_env(Opt::atom()) -&gt; term()</h3>
+
+
+<div class="description"><span id="get_app_env-1"> </span>
+
+<p>The official way to get the values set in riak's configuration file.
+       Will return the undefined atom if that option is unset.</p>
+</div></div>
+<div class="function">
+<h3 id="get_app_env/1-1">get_app_env(Opt::atom(), Default::term()) -&gt; term()</h3>
+
+
+<div class="description"><span id="get_app_env-2"> </span>
+
+<p>The official way to get the values set in riak's configuration file.
+       Will return Default if that option is unset.</p>
+</div></div>
+<div class="function">
+<h3 id="join/1">join(NodeStr) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="join-1"> </span>
+
+<p>Join the ring found on the specified remote node
+ </p>
+</div></div>
+<div class="function">
+<h3 id="local_client/0">local_client() -&gt; {ok, Client::riak_client()}</h3>
+
+
+<div class="description"><span id="local_client-0"> </span>
+<p>Equivalent to <a href="#local_client-1" class="seealso">local_client(undefined)</a>.</p>
+</div></div>
+<div class="function">
+<h3 id="local_client/1">local_client(ClientId::binary() | undefined) -&gt; {ok, Client::riak_client()}</h3>
+
+
+<div class="description"><span id="local_client-1"> </span>
+
+<p>When you want a client for use on a running Riak node.
+       ClientId should be a 32-bit binary.  If it is not, a
+       32-bit binary will be created from ClientId by phash2/1.
+       If ClientId is the atom 'undefined', a random ClientId will
+       be chosen.</p>
+</div></div>
+<div class="function">
+<h3 id="stop/0">stop() -&gt; ok</h3>
+
+
+<div class="description"><span id="stop-0"> </span>
+
+<p>Stop the riak application and the calling process.</p>
+</div></div>
+<div class="function">
+<h3 id="stop/1">stop(Reason) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="stop-1"> </span>
+ </div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#client_connect/1">client_connect/1</a></li><li><a href="#client_connect/1-1">client_connect/1-1</a></li><li><a href="#client_test/1">client_test/1</a></li><li><a href="#code_hash/0">code_hash/0</a></li><li><a href="#get_app_env/0">get_app_env/0</a></li><li><a href="#get_app_env/1">get_app_env/1</a></li><li><a href="#get_app_env/1-1">get_app_env/1-1</a></li><li><a href="#join/1">join/1</a></li><li><a href="#local_client/0">local_client/0</a></li><li><a href="#local_client/1">local_client/1</a></li><li><a href="#stop/0">stop/0</a></li><li><a href="#stop/1">stop/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

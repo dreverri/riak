@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>luke_phases (luke) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>luke_phases</h1>
+<h2 class="modsummary">Encapsulates the messaging protocol used during flow processing.</h2>
+<div class="description">
+<p>Encapsulates the messaging protocol used during flow processing.       
+Some of these functions operate on either a single       
+phase pid or a list of phase pids.</p>
+ 
+       <p>Multiple pids are encountered when a phase has parallel
+       instances running. This is triggerd by the 'converge'
+       phase behavior.</p></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="send_flow_complete/1">send_flow_complete(FlowPid::pid()) -&gt; ok</h3>
+
+
+<div class="description"><span id="send_flow_complete-1"> </span>
+
+<p>Signal completion of flow to the flow pid
+       This is sent by the last process of the last
+       phase in the flow</p>
+</div></div>
+<div class="function">
+<h3 id="send_flow_results/1">send_flow_results(FlowPid::pid(), Id::any(), Results::any()) -&gt; ok</h3>
+
+
+<div class="description"><span id="send_flow_results-3"> </span>
+
+<p>Sends flow results to the flow pid
+       This is sent by phases which are configured
+       to accumulate their results</p>
+</div></div>
+<div class="function">
+<h3 id="send_inputs/1">send_inputs(PhasePids::pid() | [pid()], Inputs::any()) -&gt; ok</h3>
+
+
+<div class="description"><span id="send_inputs-2"> </span>
+
+<p>Sends inputs to a phase process
+       If a phase has multiple processes, inputs
+       will be distributed in a round robin fashion.</p>
+</div></div>
+<div class="function">
+<h3 id="send_inputs_done/1">send_inputs_done(PhasePids) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="send_inputs_done-1"> </span>
+
+<p>Signals completion of inputs to a phase
+       or a list of phases.</p>
+</div></div>
+<div class="function">
+<h3 id="send_sync_inputs/1">send_sync_inputs(PhasePids::pid() | [pid()], Inputs::any(), Timeout::integer()) -&gt; ok | timeout</h3>
+
+
+<div class="description"><span id="send_sync_inputs-3"> </span>
+
+<p>Sends inputs to a phase process
+       NOTE: This call blocks</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#send_flow_complete/1">send_flow_complete/1</a></li><li><a href="#send_flow_results/1">send_flow_results/1</a></li><li><a href="#send_inputs/1">send_inputs/1</a></li><li><a href="#send_inputs_done/1">send_inputs_done/1</a></li><li><a href="#send_sync_inputs/1">send_sync_inputs/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

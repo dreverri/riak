@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>riak_kv_stat (riak_kv) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>riak_kv_stat</h1>
+<h2 class="modsummary">riak_kv_stat is a long-lived gen_server process for aggregating       
+stats about the Riak node on which it is runing.</h2>
+<div class="description">
+<p>riak_kv_stat is a long-lived gen_server process for aggregating       
+stats about the Riak node on which it is runing.</p>
+ 
+       <p>Update each stat with the exported function update/1.  Modify       
+the internal function update/3 to add storage for new stats.</p>
+ 
+       <p>Get the latest aggregation of stats with the exported function       
+get_stats/0.  Modify the internal function produce_stats/1 to       
+change how stats are represented.</p>
+ 
+       <p>Riak will start riak_kv_stat for you, if you have specified       
+{riak_kv_stat, true} in your config .erlenv file.</p>
+ 
+       <p>Current stats:
+ </p><dl><dt>  vnode_gets
+ </dt><dd><p> Total number of gets handled by all vnodes on this node
+           in the last minute.
+ </p></dd><dd><p> update(vnode_get)</p>
+ 
+ </dd><dt> vnode_puts
+ </dt><dd><p> Total number of puts handled by all vnodes on this node
+           in the last minute.
+ </p></dd><dd><p> update(vnode_put)</p>
+ 
+ </dd><dt> node_gets
+ </dt><dd><p> Number of gets coordinated by this node in the last
+           minute.
+ </p></dd><dd><p> update({get_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_get_fsm_time_mean
+ </dt><dd><p> Mean time, in microseconds, between when a riak_kv_get_fsm is
+           started and when it sends a reply to the client, for the
+           last minute.
+ </p></dd><dd><p> update({get_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_get_fsm_time_median
+ </dt><dd><p> Median time, in microseconds, between when a riak_kv_get_fsm
+           is started and when it sends a reply to the client, for
+           the last minute.
+ </p></dd><dd><p> update({get_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_get_fsm_time_95
+ </dt><dd><p> Response time, in microseconds, met or beaten by 95% of
+           riak_kv_get_fsm executions.
+ </p></dd><dd><p> update({get_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_get_fsm_time_99
+ </dt><dd><p> Response time, in microseconds, met or beaten by 99% of
+           riak_kv_get_fsm executions.
+ </p></dd><dd><p> update({get_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_get_fsm_time_100
+ </dt><dd><p> Response time, in microseconds, met or beaten by 100% of
+           riak_kv_get_fsm executions.
+ </p></dd><dd><p> update({get_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_puts
+ </dt><dd><p> Number of puts coordinated by this node in the last
+           minute.
+ </p></dd><dd><p> update({put_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_put_fsm_time_mean
+ </dt><dd><p> Mean time, in microseconds, between when a riak_kv_put_fsm is
+           started and when it sends a reply to the client, for the
+           last minute.
+ </p></dd><dd><p> update({put_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_put_fsm_time_median
+ </dt><dd><p> Median time, in microseconds, between when a riak_kv_put_fsm
+           is started and when it sends a reply to the client, for
+           the last minute.
+ </p></dd><dd><p> update({put_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_put_fsm_time_95
+ </dt><dd><p> Response time, in microseconds, met or beaten by 95% of
+           riak_kv_put_fsm executions.
+ </p></dd><dd><p> update({put_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_put_fsm_time_99
+ </dt><dd><p> Response time, in microseconds, met or beaten by 99% of
+           riak_kv_put_fsm executions.
+ </p></dd><dd><p> update({put_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> node_put_fsm_time_100
+ </dt><dd><p> Response time, in microseconds, met or beaten by 100% of
+           riak_kv_put_fsm executions.
+ </p></dd><dd><p> update({put_fsm_time, Microseconds})</p>
+ 
+ </dd><dt> cpu_nprocs
+ </dt><dd><p> Value returned by <a href="cpu_sup.html#nprocs-0" class="seealso">cpu_sup:nprocs/0</a>.</p>
+ 
+ </dd><dt> cpu_avg1
+ </dt><dd><p> Value returned by <a href="cpu_sup.html#avg1-0" class="seealso">cpu_sup:avg1/0</a>.</p>
+ 
+ </dd><dt> cpu_avg5
+ </dt><dd><p> Value returned by <a href="cpu_sup.html#avg5-0" class="seealso">cpu_sup:avg5/0</a>.</p>
+ 
+ </dd><dt> cpu_avg15
+ </dt><dd><p> Value returned by <a href="cpu_sup.html#avg15-0" class="seealso">cpu_sup:avg15/0</a>.</p>
+ 
+ </dd><dt> mem_total
+ </dt><dd><p> The first element of the tuple returned by
+           <a href="memsup.html#get_memory_data-0" class="seealso">memsup:get_memory_data/0</a>.</p>
+ 
+ </dd><dt> mem_allocated
+ </dt><dd><p> The second element of the tuple returned by
+           <a href="memsup.html#get_memory_data-0" class="seealso">memsup:get_memory_data/0</a>.</p>
+ 
+ </dd><dt> disk
+ </dt><dd><p> Value returned by <a href="disksup.html#get_disk_data-0" class="seealso">disksup:get_disk_data/0</a>.</p>
+ 
+ </dd><dt> pbc_connects_total
+ </dt><dd><p> Total number of pb socket connections since start</p>
+ 
+ </dd><dt> pbc_active
+ </dt><dd><p> Number of active pb socket connections</p>
+ 
+ </dd></dl>
+ 
+ </div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>ustat() = undefined | number()</code></dt>
+<dd><span id="type-ustat"> </span> </dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="get_stats/0">get_stats() -&gt; proplist()</h3>
+
+
+<div class="description"><span id="get_stats-0"> </span>
+
+<p>Get the current aggregation of stats.</p>
+</div></div>
+<div class="function">
+<h3 id="start_link/0">start_link() -&gt; {ok, Pid} | ignore | {error, Error}</h3>
+
+
+<div class="description"><span id="start_link-0"> </span>
+
+<p>Start the server.  Also start the os_mon application, if it's
+       not already running.</p>
+</div></div>
+<div class="function">
+<h3 id="update/1">update(Stat::term()) -&gt; ok</h3>
+
+
+<div class="description"><span id="update-1"> </span>
+
+<p>Update the given stat.</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#get_stats/0">get_stats/0</a></li><li><a href="#start_link/0">start_link/0</a></li><li><a href="#update/1">update/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

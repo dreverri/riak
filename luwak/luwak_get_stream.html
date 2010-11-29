@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>luwak_get_stream (luwak) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>luwak_get_stream</h1>
+<h2 class="modsummary" />
+<div class="description">
+</div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="close/1">close(X1) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="close-1"> </span>
+
+<p>Closes a get stream.  Use this to stop the flow of messages
+       from a get stream.  It is not required that a completed stream
+       have close called on it.</p>
+</div></div>
+<div class="function">
+<h3 id="recv/1">recv(Stream::get_stream(), Timeout::int()) -&gt; {binary(), int()} | eos | closed | {error, timeout}</h3>
+
+
+<div class="description"><span id="recv-2"> </span>
+
+<p>Receive will block the calling process until either the next
+       data block has been delivered, the stream ends, or until
+       Timeout milliseconds have elapsed.  Whichever occurs first.
+       The data blocks are returned as a tuple with the data binary
+       and its offset from the start of the file.</p>
+</div></div>
+<div class="function">
+<h3 id="start/1">start(Riak::riak(), File::luwak_file(), Start::int(), Length::length()) -&gt; get_stream()</h3>
+
+
+<div class="description"><span id="start-4"> </span>
+
+<p>Creates and returns a handle to a streaming get.  Initiating
+       this call will cause the requested datablock ranges to be
+       delivered as a set of messages to the calling process.</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#close/1">close/1</a></li><li><a href="#recv/1">recv/1</a></li><li><a href="#start/1">start/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

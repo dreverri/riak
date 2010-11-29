@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>webmachine_router (webmachine) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>webmachine_router</h1>
+<h2 class="modsummary">Module to add and remove dynamic routes to webmachine's routing
+       table.</h2>
+<div class="description">
+<p>Module to add and remove dynamic routes to webmachine's routing
+       table. Dynamic routes are not persistent between executions of
+       a webmachine application. They will need to be added to the
+       the table each time webmachine restarts.</p></div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>hostmatchterm() = {hostmatch(), [pathmatchterm()]}</code></dt>
+<dd><span id="type-hostmatchterm"> </span>
+<p>The dispatch configuration contains a list of these terms, and the
+ first one whose host and one pathmatchterm match is used.</p>
+</dd>
+<dt><code>matchmod() = atom()</code></dt>
+<dd><span id="type-matchmod"> </span>
+<p>This atom, if present in a successful matchterm, will appear in
+ the resulting dispterm.  In Webmachine this is used to name the
+ resource module that will handle the matching request.</p>
+</dd>
+<dt><code>matchopts() = [term()]</code></dt>
+<dd><span id="type-matchopts"> </span>
+<p>This term, if present in a successful matchterm, will appear in
+ the resulting dispterm.  In Webmachine this is used to provide
+ arguments to the resource module handling the matching request.</p>
+</dd>
+<dt><code>pathmatchterm() = {[pathterm()], matchmod(), matchopts()}</code></dt>
+<dd><span id="type-pathmatchterm"> </span>
+<p>The dispatch configuration contains a list of these terms, and the
+ first one whose list of pathterms matches the input path is used.</p>
+</dd>
+<dt><code>pathterm() = '*' | string() | atom()</code></dt>
+<dd><span id="type-pathterm"> </span>
+<p>A list of pathterms is matched against a '/'-separated input path.
+ The '*' pathterm matches all remaining tokens.
+ A string pathterm will match a token of exactly the same string.
+ Any atom pathterm other than '*' will match any token and will
+ create a binding in the result if a complete match occurs.</p>
+</dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="add_route/1">add_route(Route::hostmatchterm() | pathmatchterm()) -&gt; ok</h3>
+
+
+<div class="description"><span id="add_route-1"> </span>
+
+<p>Adds a route to webmachine's route table. The route should
+       be the format documented here:
+  http://bitbucket.org/justin/webmachine/wiki/DispatchConfiguration</p>
+</div></div>
+<div class="function">
+<h3 id="remove_resource/1">remove_resource(Resource::atom()) -&gt; ok</h3>
+
+
+<div class="description"><span id="remove_resource-1"> </span>
+
+<p>Removes all routes for a specific resource module.</p>
+</div></div>
+<div class="function">
+<h3 id="remove_route/1">remove_route(Route::hostmatchterm() | pathmatchterm()) -&gt; ok</h3>
+
+
+<div class="description"><span id="remove_route-1"> </span>
+
+<p>Removes a route from webamchine's route table. The route
+       route must be properly formatted</p>
+<p><em>See also:</em> <a href="#add_route-2" class="seealso">add_route/2</a>.</p>
+</div></div>
+<div class="function">
+<h3 id="start_link/0">start_link() -&gt; {ok, pid()} | {error, any()}</h3>
+
+
+<div class="description"><span id="start_link-0"> </span>
+
+<p>Starts the webmachine_router gen_server.</p>
+</div></div></div>
+
+<authors>
+
+<aname>Kevin A. Smith</aname>
+<email>ksmith@basho.com</email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#add_route/1">add_route/1</a></li><li><a href="#remove_resource/1">remove_resource/1</a></li><li><a href="#remove_route/1">remove_route/1</a></li><li><a href="#start_link/0">start_link/0</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

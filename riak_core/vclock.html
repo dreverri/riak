@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>vclock (riak_core) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>vclock</h1>
+<h2 class="modsummary">A simple Erlang implementation of vector clocks as inspired by Lamport logical clocks.</h2>
+<div class="description">
+<p>A simple Erlang implementation of vector clocks as inspired by Lamport logical clocks.
+ </p></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="all_nodes/1">all_nodes(VClock) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="all_nodes-1"> </span>
+
+<p>Return the list of all nodes that have ever incremented VClock.</p>
+</div></div>
+<div class="function">
+<h3 id="descends/2">descends(Va, Vb) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="descends-2"> </span>
+
+<p>Return true if Va is a direct descendant of Vb, else false -- remember, a vclock is its own descendant!</p>
+</div></div>
+<div class="function">
+<h3 id="equal/2">equal(VA, VB) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="equal-2"> </span>
+
+<p>Compares two VClocks for equality.
+      Not very fast.</p>
+</div></div>
+<div class="function">
+<h3 id="fresh/0">fresh() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="fresh-0"> </span>
+
+<p>Create a brand new vclock.</p>
+</div></div>
+<div class="function">
+<h3 id="get_counter/2">get_counter(Node, VClock) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_counter-2"> </span>
+
+<p>Get the counter value in VClock set from Node.</p>
+</div></div>
+<div class="function">
+<h3 id="get_timestamp/2">get_timestamp(Node, VClock) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_timestamp-2"> </span>
+
+<p>Get the timestamp value in a VClock set from Node.</p>
+</div></div>
+<div class="function">
+<h3 id="increment/2">increment(Node, VClock) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="increment-2"> </span>
+
+<p>Increment VClock at Node.</p>
+</div></div>
+<div class="function">
+<h3 id="merge/1">merge(Rest) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="merge-1"> </span>
+
+<p>Combine all VClocks in the input list into their least possible
+      common descendant.</p>
+</div></div>
+<div class="function">
+<h3 id="prune/3">prune(V, Now, BucketProps) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="prune-3"> </span>
+
+<p>Possibly shrink the size of a vclock, depending on current age and size.</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#all_nodes/1">all_nodes/1</a></li><li><a href="#descends/2">descends/2</a></li><li><a href="#equal/2">equal/2</a></li><li><a href="#fresh/0">fresh/0</a></li><li><a href="#get_counter/2">get_counter/2</a></li><li><a href="#get_timestamp/2">get_timestamp/2</a></li><li><a href="#increment/2">increment/2</a></li><li><a href="#merge/1">merge/1</a></li><li><a href="#prune/3">prune/3</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>webmachine_multipart (webmachine) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>webmachine_multipart</h1>
+<h2 class="modsummary">Utility for parsing multipart form bodies.</h2>
+<div class="description">
+<p>Utility for parsing multipart form bodies.</p></div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>boundary() = string()</code></dt>
+<dd><span id="type-boundary"> </span>
+<p>The multipart boundary, as taken from the containing message's content-type.</p>
+</dd>
+<dt><code>fcontent() = binary()</code></dt>
+<dd><span id="type-fcontent"> </span>
+<p>The body content within a form part.</p>
+</dd>
+<dt><code>fheader() = {binary(), binary()}</code></dt>
+<dd><span id="type-fheader"> </span>
+<p>A header name and value supplied within a form part.</p>
+</dd>
+<dt><code>fparam() = {binary(), binary()}</code></dt>
+<dd><span id="type-fparam"> </span>
+<p>A key-value parameter from the content-disposition header in a form part.</p>
+</dd>
+<dt><code>fpart() = {fpartname(), {[fparam()], [fheader()]}, fcontent()}</code></dt>
+<dd><span id="type-fpart"> </span>
+<p>A single part of a multipart form.</p>
+</dd>
+<dt><code>fpartname() = string()</code></dt>
+<dd><span id="type-fpartname"> </span>
+<p>The name from the form field of a form part.</p>
+</dd>
+<dt><code>incoming_req_body() = binary()</code></dt>
+<dd><span id="type-incoming_req_body"> </span>
+<p>The request body, in "multipart/form-data" (rfc2388) form,</p>
+</dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="find_boundary/1">find_boundary(ReqData::wm_reqdata() (see module wrq)) -&gt; boundary()</h3>
+
+
+<div class="description"><span id="find_boundary-1"> </span>
+
+<p>Find the multipart boundary for a request.</p>
+</div></div>
+<div class="function">
+<h3 id="get_all_parts/1">get_all_parts(Body::incoming_req_body(), Boundary::boundary()) -&gt; [fpart()]</h3>
+
+
+<div class="description"><span id="get_all_parts-2"> </span>
+
+<p>Turn a multipart form into component parts.</p>
+</div></div>
+<div class="function">
+<h3 id="stream_parts/1">stream_parts(StreamStruct::wm_stream(), Boundary::boundary()) -&gt; done_parts | {fpart(), function()}</h3>
+
+
+<div class="description"><span id="stream_parts-2"> </span>
+
+<p>Similar to get_all_parts/2, but for streamed/chunked bodies.
+   Takes as input the result of wrq:stream_req_body/2, and provides
+   either the atom 'done_parts' when no more parts are available, or
+   a tuple with the next part and a function.  That function will
+   have 0-arity and the same return type as stream_parts/2 itself.</p>
+</div></div></div>
+
+<authors>
+
+<aname>Justin Sheehy</aname>
+<email>justin@basho.com</email>
+<aname>Andy Gross</aname>
+<email>andy@basho.com</email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#find_boundary/1">find_boundary/1</a></li><li><a href="#get_all_parts/1">get_all_parts/1</a></li><li><a href="#stream_parts/1">stream_parts/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

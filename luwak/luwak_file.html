@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>luwak_file (luwak) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>luwak_file</h1>
+<h2 class="modsummary" />
+<div class="description">
+</div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="create/1">create(Riak::riak(), Name::binary(), Attributes::dict()) -&gt; {ok, File::luwak_file()}</h3>
+
+
+<div class="description"><span id="create-3"> </span>
+
+<p>Create a luwak file handle with the given name and attributes.  Will
+       overwrite an existing file of the same name.</p>
+</div></div>
+<div class="function">
+<h3 id="create/1-1">create(Riak::riak(), Name::binary(), Properties::proplist(), Attributes::dict()) -&gt; {ok, File::luwak_file()}</h3>
+
+
+<div class="description"><span id="create-4"> </span>
+
+<p>Create a luwak file handle with the given name and attributes.
+       Recognized properties:
+       {block_size, int()}       - The maximum size of an individual data chunk
+                                    in bytes.  Default is 1000000.
+       {tree_order, int()}       - The maximum number of children for an
+                                    individual tree node. Default is 250.
+       {checksumming, boolean()} - This controls whether or not checksumming
+                                    will occur.  Checksumming will leave a
+                                    checksum of the most recent write request
+                                    as a property of the filehandle.</p>
+</div></div>
+<div class="function">
+<h3 id="delete/1">delete(Riak::riak(), Name::binary()) -&gt; ok | {error, Reason}</h3>
+
+
+<div class="description"><span id="delete-2"> </span>
+
+<p>deletes the named file from luwak.  This is a fast operation since
+       the blocks and tree for that file remain untouched.  A GC operation
+       (not yet implemented) will be required to clean them up properly.</p>
+</div></div>
+<div class="function">
+<h3 id="exists/1">exists(Riak::riak(), Name::binary()) -&gt; {ok, true} | {ok, false} | {error, Reason}</h3>
+
+
+<div class="description"><span id="exists-2"> </span>
+
+<p>Checks for the existence of the named file.</p>
+</div></div>
+<div class="function">
+<h3 id="get/1">get(Riak::riak(), Name::binary()) -&gt; {ok, File} | {error, Reason}</h3>
+
+
+<div class="description"><span id="get-2"> </span>
+
+<p>returns a filehandle for the named file.</p>
+</div></div>
+<div class="function">
+<h3 id="get_attributes/1">get_attributes(Obj::luwak_file()) -&gt; dict()</h3>
+
+
+<div class="description"><span id="get_attributes-1"> </span>
+
+<p>Gets the attribute dictionary from the file handle.</p>
+</div></div>
+<div class="function">
+<h3 id="get_property/1">get_property(Obj::luwak_file(), PropName::atom()) -&gt; Property</h3>
+
+
+<div class="description"><span id="get_property-2"> </span>
+
+<p>retrieves the named property from the filehandle.</p>
+</div></div>
+<div class="function">
+<h3 id="length/1">length(Riak::riak(), File::luwak_file()) -&gt; Length</h3>
+
+
+<div class="description"><span id="length-2"> </span>
+
+<p>returns the length in bytes of the file.</p>
+</div></div>
+<div class="function">
+<h3 id="name/1">name(Obj::luwak_file()) -&gt; binary()</h3>
+
+
+<div class="description"><span id="name-1"> </span>
+
+<p>returns the name of the given file handle.</p>
+</div></div>
+<div class="function">
+<h3 id="set_attributes/1">set_attributes(Riak::riak(), Obj::luwak_file(), Attributes::dict()) -&gt; {ok, NewFile}</h3>
+
+
+<div class="description"><span id="set_attributes-3"> </span>
+
+<p>Sets the new attributes, saves them, and returns a new file handle.</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#create/1">create/1</a></li><li><a href="#create/1-1">create/1-1</a></li><li><a href="#delete/1">delete/1</a></li><li><a href="#exists/1">exists/1</a></li><li><a href="#get/1">get/1</a></li><li><a href="#get_attributes/1">get_attributes/1</a></li><li><a href="#get_property/1">get_property/1</a></li><li><a href="#length/1">length/1</a></li><li><a href="#name/1">name/1</a></li><li><a href="#set_attributes/1">set_attributes/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

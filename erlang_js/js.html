@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>js (erlang_js) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>js</h1>
+<h2 class="modsummary">Convenience module for interacting with Javascript from Erlang.</h2>
+<div class="description">
+<p>Convenience module for interacting with Javascript from Erlang.
+  The functions provided by this module marshal bindings and function
+  args into JSON before sending them to Javascript. While this does
+  incur a certain amount of overhead it has the benefit of (mostly)
+  preserving types as they roundtrip between Erlang and Javascript.
+  Of course, this also means all Erlang values MUST BE convertable
+  into JSON. In practice, this is less restricting than it sounds.</p></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="call/1">call(Ctx::port(), FunctionName::binary(), Args::list(any())) -&gt; {ok, Result} | {error, any()}</h3>
+
+
+<div class="description"><span id="call-3"> </span>
+
+<p>Call a function by name with a list of arguments. This is roughly the
+  same as apply in most other languages.</p>
+</div></div>
+<div class="function">
+<h3 id="call/1-1">call(Ctx::port(), FunctionName::binary(), Args::list(any()), Bindings::list(any())) -&gt; {ok, Result} | {error, any()}</h3>
+
+
+<div class="description"><span id="call-4"> </span>
+
+<p>Call a function by name with a list of arguments and environmental bindings. Bindings
+  behave just like define/3.</p>
+</div></div>
+<div class="function">
+<h3 id="define/1">define(Ctx::port(), Js::binary()) -&gt; ok | {error, any()}</h3>
+
+
+<div class="description"><span id="define-2"> </span>
+
+<p>Define one or more Javascript expressions.</p>
+</div></div>
+<div class="function">
+<h3 id="define/1-1">define(Ctx::port(), Js::binary(), Bindings::list(any())) -&gt; ok | {error, any()}</h3>
+
+
+<div class="description"><span id="define-3"> </span>
+
+<p>Define one or more Javascript expressions using a set of bindings. Bindings
+  are useful when the expressions use closures.</p>
+</div></div>
+<div class="function">
+<h3 id="eval/1">eval(Ctx::port(), Js::binary()) -&gt; {ok, any()} | {error, any()}</h3>
+
+
+<div class="description"><span id="eval-2"> </span>
+
+<p>Evaluate one or more Javascript expressions and return the results</p>
+</div></div></div>
+
+<authors>
+
+<aname>Kevin Smith</aname>
+<email>ksmith@basho.com</email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#call/1">call/1</a></li><li><a href="#call/1-1">call/1-1</a></li><li><a href="#define/1">define/1</a></li><li><a href="#define/1-1">define/1-1</a></li><li><a href="#eval/1">eval/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

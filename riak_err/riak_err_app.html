@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>riak_err_app (riak_err) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>riak_err_app</h1>
+<h2 class="modsummary">A memory-limited info/error/warning event handler.</h2>
+<div class="description">
+<p>A memory-limited info/error/warning event handler.</p>
+ 
+  <p>Replace the OTP default error_logger's event handler (which  
+can cause memory use problems when handling very large messages)  
+with a handler that will use a limited amount of RAM but is  
+otherwise equivalent.</p>
+ 
+  <p>Strictly speaking, this library need be a "code only" application,
+  i.e. an OTP application without any support processes (like the
+  <code>stdlib</code> OTP application).  However, there's one significant
+  reason why <code>riak_err</code> would want to have a small monitoring  
+server running.  The reason is as follows:</p>
+ 
+  <p>The OTP <code>kernel</code> application's has a gen_event-based process
+  with the registered name <code>error_logger</code> that handles all
+  system info/error/warning messages, e.g., submitted by
+  <code>error_logger:info_msg()</code> and related functions.  If there
+  is a problem with an <code>error_logger</code> event handler (e.g.,  
+throws an exception), the handler is silently removed from handling  
+further events.</p>
+ 
+  <p>We wish to know about all events, good and bad, despite software
+  bugs.  Therefore, if there's an error in an event handler, we want
+  a monitor process to find out about the error and act to re-install
+  the handler.  If we don't re-install the handler, we will
+  <em>never</em> see another event logged.  We want happy event  
+logging, but we do not want to travel the "Ignorance is bliss" road  
+to find that happiness.</p>
+ 
+  <ul>
+ 
+  <li> We use a long-lived gen_server-based process (running code in
+  this module) to be our monitor. </li>
+ 
+  <li> We install the handler using
+  <code>gen_event:add_sup_handler/3</code>.  If the handler exits or
+  throws an exception, we'll be sent a <code>{gen_event_EXIT, ...}</code>
+  message. </li>
+ 
+  <li> If we receive the <code>{gen_event_EXIT, ...}</code> bad news
+  message, we exit.  Our supervisor will restart us, and the
+  side-effect of running our <code>init()</code> function is
+  re-installing our custom event handler. </li>
+ 
+ </ul>
+ 
+  <p><em>Configuration</em></p>
+ 
+  <p>There are two config knobs may be specified on the command line
+  via "-riak_err KnobName Integer" on the command line or (in a
+  Basho application like Riak) via the same "-riak_err KnobName Integer"
+  line in the <code>etc/vm.args</code> file).  Alternatively, these properties  
+may be set using application environment variables by the same name.</p>
+ 
+  <ul>
+  <li> <code>term_max_size</code> For arguments formatted in FormatString &
+  ArgList style, if the total size of ArgList is more than term_max_size,
+  then we'll ignore FormatString and log the message with a well-known
+  (and therefore safe) formatting string.  The default is 10KBytes. </li>
+ 
+  <li> <code>fmt_max_bytes</code> When formatting a log-related term that might
+  be "big", limit the term's formatted output to a maximum of
+  <code>fmt_max_bytes</code> bytes.  The default is 12KBytes. </li>
+  </ul>
+ 
+  <p>For example, <code>erl -riak_err term_max_size 8192 fmt_max_bytes 9000</code>.</p></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="start/0">start() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="start-0"> </span>
+ </div></div>
+<div class="function">
+<h3 id="start/2">start(StartType, StartArgs) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="start-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="stop/1">stop(State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="stop-1"> </span>
+ </div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#start/0">start/0</a></li><li><a href="#start/2">start/2</a></li><li><a href="#stop/1">stop/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>bitcask_nifs (bitcask) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>bitcask_nifs</h1>
+<h2 class="modsummary" />
+<div class="description">
+</div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="create_file/1">create_file(Filename) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="create_file-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="init/0">init() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="init-0"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_copy/1">keydir_copy(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_copy-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_fold/3">keydir_fold(Ref, Fun, Acc0) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_fold-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_get/2">keydir_get(Ref, Key) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_get-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_info/1">keydir_info(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_info-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_mark_ready/1">keydir_mark_ready(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_mark_ready-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_new/0">keydir_new() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_new-0"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_new/1">keydir_new(Name) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_new-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_put/6">keydir_put(Ref, Key, FileId, TotalSz, Offset, Tstamp) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_put-6"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_release/1">keydir_release(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_release-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_remove/2">keydir_remove(Ref, Key) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_remove-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="keydir_remove/5">keydir_remove(Ref, Key, Tstamp, FileId, Offset) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="keydir_remove-5"> </span>
+ </div></div>
+<div class="function">
+<h3 id="lock_acquire/2">lock_acquire(Filename, IsWriteLock) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="lock_acquire-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="lock_readdata/1">lock_readdata(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="lock_readdata-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="lock_release/1">lock_release(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="lock_release-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="lock_writedata/2">lock_writedata(Ref, Data) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="lock_writedata-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="set_osync/1">set_osync(Filehandle) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_osync-1"> </span>
+ </div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#create_file/1">create_file/1</a></li><li><a href="#init/0">init/0</a></li><li><a href="#keydir_copy/1">keydir_copy/1</a></li><li><a href="#keydir_fold/3">keydir_fold/3</a></li><li><a href="#keydir_get/2">keydir_get/2</a></li><li><a href="#keydir_info/1">keydir_info/1</a></li><li><a href="#keydir_mark_ready/1">keydir_mark_ready/1</a></li><li><a href="#keydir_new/0">keydir_new/0</a></li><li><a href="#keydir_new/1">keydir_new/1</a></li><li><a href="#keydir_put/6">keydir_put/6</a></li><li><a href="#keydir_release/1">keydir_release/1</a></li><li><a href="#keydir_remove/2">keydir_remove/2</a></li><li><a href="#keydir_remove/5">keydir_remove/5</a></li><li><a href="#lock_acquire/2">lock_acquire/2</a></li><li><a href="#lock_readdata/1">lock_readdata/1</a></li><li><a href="#lock_release/1">lock_release/1</a></li><li><a href="#lock_writedata/2">lock_writedata/2</a></li><li><a href="#set_osync/1">set_osync/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

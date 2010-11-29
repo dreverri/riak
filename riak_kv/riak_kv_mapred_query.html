@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>riak_kv_mapred_query (riak_kv) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>riak_kv_mapred_query</h1>
+<h2 class="modsummary">riak_kv_mapred_query is the driver of a mapreduce query.</h2>
+<div class="description">
+<p>riak_kv_mapred_query is the driver of a mapreduce query.</p>
+ 
+       <p>Map phases are expected to have inputs of the form       
+[{Bucket,Key}] or [{{Bucket,Key},KeyData}] (the first form is       
+equivalent to [{{Bucket,Key},undefined}]) and will execute       
+with locality to each key and must return a list that is valid       
+input to the next phase</p>
+ 
+       <p>Reduce phases take any list, but the function must be       
+commutative and associative, and the next phase will block       
+until the reduce phase is entirely done, and the reduce fun       
+must return a list that is valid input to the next phase</p>
+ 
+       <p>Valid terms for Query:
+ </p><ul>
+ <li><p>  {link, Bucket, Tag, Acc}</p></li>
+ <li><p>  {map, FunTerm, Arg, Acc}</p></li>
+ <li><p>  {reduce, FunTerm, Arg, Acc}</p></li>
+ </ul><p>
+       where FunTerm is one of:
+  </p><ul>
+ <li><p>  {modfun, Mod, Fun} : Mod and Fun both atoms -&gt;
+          Mod:Fun(Object,KeyData,Arg)</p></li>
+ <li><p>  {qfun, Fun} : Fun is an actual fun -&gt;
+          Fun(Object,KeyData,Arg)</p></li>
+ </ul></div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>mapred_funterm() = {modfun, Module::atom(), Function::atom()} | {qfun, function()}</code></dt>
+<dd><span id="type-mapred_funterm"> </span> </dd>
+<dt><code>mapred_queryterm() = {map, mapred_funterm(), Arg::term(), Accumulate::boolean()} | {reduce, mapred_funterm(), Arg::term(), Accumulate::boolean()} | {link, Bucket::bucket() (see module riak_object), Tag::term(), Accumulate::boolean()}</code></dt>
+<dd><span id="type-mapred_queryterm"> </span> </dd>
+<dt><code>mapred_result() = [term()]</code></dt>
+<dd><span id="type-mapred_result"> </span> </dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="start/6">start(Node, Client, ReqId, Query0, ResultTransformer, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="start-6"> </span>
+ </div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#start/6">start/6</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

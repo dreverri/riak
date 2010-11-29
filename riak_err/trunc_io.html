@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>trunc_io (riak_err) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>trunc_io</h1>
+<h2 class="modsummary">Module to print out terms for logging.</h2>
+<div class="description">
+<p>Module to print out terms for logging. Limits by length rather than depth.</p>
+ 
+  <p>The resulting string may be slightly larger than the limit; the intention  
+is to provide predictable CPU and memory consumption for formatting  
+terms, not produce precise string lengths.</p>
+ 
+  <p>Typical use:</p>
+ 
+    <p>trunc_io:print(Term, 500).</p>
+ 
+  <p>Source license: Erlang Public License.
+  Original author: Matthias Lang, <code>matthias@corelatus.se</code></p></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="fprint/2">fprint(T, Max) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="fprint-2"> </span>
+
+<p>Returns an flattened list containing the ASCII representation of the given
+  term.</p>
+</div></div>
+<div class="function">
+<h3 id="perf/0">perf() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="perf-0"> </span>
+ </div></div>
+<div class="function">
+<h3 id="perf/3">perf(M, F, Reps) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="perf-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="perf1/0">perf1() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="perf1-0"> </span>
+ </div></div>
+<div class="function">
+<h3 id="print/2">print(Tuple, Max) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="print-2"> </span>
+
+<p>Returns {List, Length}</p>
+</div></div>
+<div class="function">
+<h3 id="safe/2">safe(What, Len) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="safe-2"> </span>
+
+<p>Same as print, but never crashes.</p>
+ 
+  <p>This is a tradeoff. Print might conceivably crash if it's asked to
+  print something it doesn't understand, for example some new data
+  type in a future version of Erlang. If print crashes, we fall back
+  to io_lib to format the term, but then the formatting is
+  depth-limited instead of length limited, so you might run out
+  memory printing it. Out of the frying pan and into the fire.
+ </p>
+</div></div>
+<div class="function">
+<h3 id="test/0">test() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="test-0"> </span>
+ </div></div>
+<div class="function">
+<h3 id="test/2">test(Mod, Func) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="test-2"> </span>
+ </div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#fprint/2">fprint/2</a></li><li><a href="#perf/0">perf/0</a></li><li><a href="#perf/3">perf/3</a></li><li><a href="#perf1/0">perf1/0</a></li><li><a href="#print/2">print/2</a></li><li><a href="#safe/2">safe/2</a></li><li><a href="#test/0">test/0</a></li><li><a href="#test/2">test/2</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>bitcask (bitcask) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>bitcask</h1>
+<h2 class="modsummary" />
+<div class="description">
+</div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>bc_state()</code></dt>
+<dd><span id="type-bc_state"> </span> </dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="close/1">close(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="close-1"> </span>
+
+<p>Close a bitcask data store and flush any pending writes to disk.</p>
+</div></div>
+<div class="function">
+<h3 id="delete/2">delete(Ref, Key) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="delete-2"> </span>
+
+<p>Delete a key from a bitcask datastore.</p>
+</div></div>
+<div class="function">
+<h3 id="fold/3">fold(Ref, Fun, Acc0) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="fold-3"> </span>
+
+<p>fold over all K/V pairs in a bitcask datastore.
+  Fun is expected to take F(K,V,Acc0) -&gt; Acc</p>
+</div></div>
+<div class="function">
+<h3 id="fold_keys/3">fold_keys(Ref, Fun, Acc0) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="fold_keys-3"> </span>
+
+<p>Fold over all keys in a bitcask datastore.
+  Must be able to understand the bitcask_entry record form.</p>
+</div></div>
+<div class="function">
+<h3 id="get/2">get(Ref, Key) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get-2"> </span>
+
+<p>Retrieve a value by key from a bitcask datastore.</p>
+</div></div>
+<div class="function">
+<h3 id="get_filestate/2">get_filestate(FileId, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_filestate-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="get_opt/2">get_opt(Key, Opts) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_opt-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="list_keys/1">list_keys(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="list_keys-1"> </span>
+
+<p>List all keys in a bitcask datastore.</p>
+</div></div>
+<div class="function">
+<h3 id="merge/1">merge(Dirname) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="merge-1"> </span>
+
+<p>Merge several data files within a bitcask datastore
+       into a more compact form.</p>
+</div></div>
+<div class="function">
+<h3 id="merge/2">merge(Dirname, Opts) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="merge-2"> </span>
+
+<p>Merge several data files within a bitcask datastore
+       into a more compact form.</p>
+</div></div>
+<div class="function">
+<h3 id="merge/3">merge(Dirname, Opts, FilesToMerge0) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="merge-3"> </span>
+
+<p>Merge several data files within a bitcask datastore
+       into a more compact form.</p>
+</div></div>
+<div class="function">
+<h3 id="needs_merge/1">needs_merge(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="needs_merge-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="open/1">open(Dirname) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="open-1"> </span>
+
+<p>Open a new or existing bitcask datastore for read-only access.</p>
+</div></div>
+<div class="function">
+<h3 id="open/2">open(Dirname, Opts) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="open-2"> </span>
+
+<p>Open a new or existing bitcask datastore with additional options.</p>
+</div></div>
+<div class="function">
+<h3 id="put/3">put(Ref, Key, Value) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="put-3"> </span>
+
+<p>Store a key and value in a bitcase datastore.</p>
+</div></div>
+<div class="function">
+<h3 id="status/1">status(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="status-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="sync/1">sync(Ref) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="sync-1"> </span>
+
+<p>Force any writes to sync to disk.</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#close/1">close/1</a></li><li><a href="#delete/2">delete/2</a></li><li><a href="#fold/3">fold/3</a></li><li><a href="#fold_keys/3">fold_keys/3</a></li><li><a href="#get/2">get/2</a></li><li><a href="#get_filestate/2">get_filestate/2</a></li><li><a href="#get_opt/2">get_opt/2</a></li><li><a href="#list_keys/1">list_keys/1</a></li><li><a href="#merge/1">merge/1</a></li><li><a href="#merge/2">merge/2</a></li><li><a href="#merge/3">merge/3</a></li><li><a href="#needs_merge/1">needs_merge/1</a></li><li><a href="#open/1">open/1</a></li><li><a href="#open/2">open/2</a></li><li><a href="#put/3">put/3</a></li><li><a href="#status/1">status/1</a></li><li><a href="#sync/1">sync/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

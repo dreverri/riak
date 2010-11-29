@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>chash (riak_core) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>chash</h1>
+<h2 class="modsummary">A consistent hashing implementation.</h2>
+<div class="description">
+<p>A consistent hashing implementation.  The space described by the ring
+       coincides with SHA-1 hashes, and so any two keys producing the same
+       SHA-1 hash are considered identical within the ring.
+ </p></div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>chash() = {NumPartitions, [NodeEntry]}</code></dt>
+<dd><span id="type-chash"> </span>
+<ul><li><code>NumPartitions = integer()</code></li><li><code>NodeEntry = {IndexAsInt, Node}</code></li><li><code>IndexAsInt = integer()</code></li><li><code>Node = node()</code></li></ul>
+<p>It is not recommended that code outside this module make use
+ of the structure of a chash.</p>
+</dd>
+<dt><code>index() = binary()</code></dt>
+<li><span id="type-index"> </span>
+<p>Indices into the ring, used as keys for object location, are binary
+ representations of 160-bit integers.</p>
+</li>
+<dt><code>node() = term()</code></dt>
+<li><span id="type-node"> </span>
+<p>A Node is the unique identifier for the owner of a given partition.
+ An Erlang Pid works well here, but the chash module allows it to
+ be any term.</p>
+</li>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="contains_name/1">contains_name(Name::node(), CHash::chash()) -&gt; bool()</h3>
+
+
+<div class="description"><span id="contains_name-2"> </span>
+
+<p>Return true if named Node owns any partitions in the ring, else false.</p>
+</div></div>
+<div class="function">
+<h3 id="fresh/1">fresh(NumPartitions::integer(), SeedNode::node()) -&gt; chash()</h3>
+
+
+<div class="description"><span id="fresh-2"> </span>
+
+<p>Create a brand new ring.  The size and seednode are specified;
+      initially all partitions are owned by the seednode.  If NumPartitions
+      is not much larger than the intended eventual number of
+       participating nodes, then performance will suffer.</p>
+</div></div>
+<div class="function">
+<h3 id="key_of/1">key_of(ObjectName::term()) -&gt; index()</h3>
+
+
+<div class="description"><span id="key_of-1"> </span>
+
+<p>Given any term used to name an object, produce that object's key
+      into the ring.  Two names with the same SHA-1 hash value are
+      considered the same name.</p>
+</div></div>
+<div class="function">
+<h3 id="lookup/1">lookup(IndexAsInt::integer(), CHash::chash()) -&gt; node()</h3>
+
+
+<div class="description"><span id="lookup-2"> </span>
+
+<p>Find the Node that owns the partition identified by IndexAsInt.</p>
+</div></div>
+<div class="function">
+<h3 id="members/1">members(CHash::chash()) -&gt; [Node]</h3>
+
+
+<div class="description"><span id="members-1"> </span>
+
+<p>Return all Nodes that own any partitions in the ring.</p>
+</div></div>
+<div class="function">
+<h3 id="merge_rings/1">merge_rings(CHashA::chash(), CHashB::chash()) -&gt; chash()</h3>
+
+
+<div class="description"><span id="merge_rings-2"> </span>
+
+<p>Return a randomized merge of two rings.
+      If multiple nodes are actively claiming nodes in the same
+      time period, churn will occur.  Be prepared to live with it.</p>
+</div></div>
+<div class="function">
+<h3 id="nodes/1">nodes(CHash::chash()) -&gt; [NodeEntry]</h3>
+
+
+<div class="description"><span id="nodes-1"> </span>
+
+<p>Return the entire set of NodeEntries in the ring.</p>
+</div></div>
+<div class="function">
+<h3 id="predecessors/1">predecessors(Index::index(), CHash::chash()) -&gt; [NodeEntry]</h3>
+
+
+<div class="description"><span id="predecessors-2"> </span>
+
+<p>Given an object key, return all NodeEntries in reverse order
+      starting at Index.</p>
+</div></div>
+<div class="function">
+<h3 id="predecessors/3">predecessors(Index, CHash, N) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="predecessors-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="size/1">size(CHash::chash()) -&gt; integer()</h3>
+
+
+<div class="description"><span id="size-1"> </span>
+
+<p>Return the number of partitions in the ring.</p>
+</div></div>
+<div class="function">
+<h3 id="successors/1">successors(Index::index(), CHash::chash()) -&gt; [NodeEntry]</h3>
+
+
+<div class="description"><span id="successors-2"> </span>
+
+<p>Given an object key, return all NodeEntries in order starting at Index.</p>
+</div></div>
+<div class="function">
+<h3 id="successors/3">successors(Index, CHash, N) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="successors-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="update/1">update(IndexAsInt::integer(), Name::node(), CHash::chash()) -&gt; chash()</h3>
+
+
+<div class="description"><span id="update-3"> </span>
+
+<p>Make the partition beginning at IndexAsInt owned by Name'd node.</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#contains_name/1">contains_name/1</a></li><li><a href="#fresh/1">fresh/1</a></li><li><a href="#key_of/1">key_of/1</a></li><li><a href="#lookup/1">lookup/1</a></li><li><a href="#members/1">members/1</a></li><li><a href="#merge_rings/1">merge_rings/1</a></li><li><a href="#nodes/1">nodes/1</a></li><li><a href="#predecessors/1">predecessors/1</a></li><li><a href="#predecessors/3">predecessors/3</a></li><li><a href="#size/1">size/1</a></li><li><a href="#successors/1">successors/1</a></li><li><a href="#successors/3">successors/3</a></li><li><a href="#update/1">update/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

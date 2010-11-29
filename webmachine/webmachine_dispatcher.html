@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>webmachine_dispatcher (webmachine) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>webmachine_dispatcher</h1>
+<h2 class="modsummary">Module for URL-dispatch by pattern matching.</h2>
+<div class="description">
+<p>Module for URL-dispatch by pattern matching.</p></div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>approot() = string()</code></dt>
+<dd><span id="type-approot"> </span> </dd>
+<dt><code>bindings() = [{bindingterm(), pathtoken()}]</code></dt>
+<dd><span id="type-bindings"> </span>
+<p>This is a proplist of bindings indicated by atom terms in the
+ matching spec, bound to the matching tokens in the request path.</p>
+</dd>
+<dt><code>dispfail() = {no_dispatch_match, pathtokens()}</code></dt>
+<dd><span id="type-dispfail"> </span> </dd>
+<dt><code>dispterm() = {matchmod(), matchopts(), pathtokens(), bindings(), approot(), stringpath()}</code></dt>
+<dd><span id="type-dispterm"> </span> </dd>
+<dt><code>hostmatch() = [hostterm()] | {[hostterm()], portterm()}</code></dt>
+<dd><span id="type-hostmatch"> </span>
+<p>A host header (Host, X-Forwarded-For, etc.) will be matched against
+ this term.  Using a raws [hostterm()] list is equivalent to using
+ {[hostterm()], '*'}.</p>
+</dd>
+<dt><code>hostmatchterm() = {hostmatch(), [pathmatchterm()]}</code></dt>
+<dd><span id="type-hostmatchterm"> </span>
+<p>The dispatch configuration contains a list of these terms, and the
+ first one whose host and one pathmatchterm match is used.</p>
+</dd>
+<dt><code>hostterm() = '*' | string() | atom()</code></dt>
+<dd><span id="type-hostterm"> </span>
+<p>A list of hostterms is matched against a '.'-separated hostname.
+ The '*' hosterm matches all remaining tokens, and is only allowed at
+ the head of the list.
+ A string hostterm will match a token of exactly the same string.
+ Any atom hostterm other than '*' will match any token and will
+ create a binding in the result if a complete match occurs.</p>
+</dd>
+<dt><code>matchmod() = atom()</code></dt>
+<dd><span id="type-matchmod"> </span>
+<p>This atom, if present in a successful matchterm, will appear in
+ the resulting dispterm.  In Webmachine this is used to name the
+ resource module that will handle the matching request.</p>
+</dd>
+<dt><code>matchopts() = [term()]</code></dt>
+<dd><span id="type-matchopts"> </span>
+<p>This term, if present in a successful matchterm, will appear in
+ the resulting dispterm.  In Webmachine this is used to provide
+ arguments to the resource module handling the matching request.</p>
+</dd>
+<dt><code>matchterm() = hostmatchterm() | pathmatchterm()</code></dt>
+<dd><span id="type-matchterm"> </span>
+<p>The dispatch configuration is a list of these terms, and the
+ first one whose host and path terms match the input is used.
+ Using a pathmatchterm() here is equivalent to using a hostmatchterm()
+ of the form {{['*'],'*'}, [pathmatchterm()]}.</p>
+</dd>
+<dt><code>pathmatchterm() = {[pathterm()], matchmod(), matchopts()}</code></dt>
+<dd><span id="type-pathmatchterm"> </span>
+<p>The dispatch configuration contains a list of these terms, and the
+ first one whose list of pathterms matches the input path is used.</p>
+</dd>
+<dt><code>pathterm() = '*' | string() | atom()</code></dt>
+<dd><span id="type-pathterm"> </span>
+<p>A list of pathterms is matched against a '/'-separated input path.
+ The '*' pathterm matches all remaining tokens.
+ A string pathterm will match a token of exactly the same string.
+ Any atom pathterm other than '*' will match any token and will
+ create a binding in the result if a complete match occurs.</p>
+</dd>
+<dt><code>pathtoken() = string()</code></dt>
+<dd><span id="type-pathtoken"> </span> </dd>
+<dt><code>pathtokens() = [pathtoken()]</code></dt>
+<dd><span id="type-pathtokens"> </span>
+<p>This is the list of tokens matched by a trailing '*' pathterm.</p>
+</dd>
+<dt><code>portterm() = '*' | integer() | atom()</code></dt>
+<dd><span id="type-portterm"> </span>
+<p>A portterm is matched against the integer port after any ':' in
+ the hostname, or 80 if no port is found.
+ The '*' portterm patches any port
+ An integer portterm will match a port of exactly the same integer.
+ Any atom portterm other than '*' will match any port and will
+ create a binding in the result if a complete match occurs.</p>
+</dd>
+<dt><code>stringpath() = string()</code></dt>
+<dd><span id="type-stringpath"> </span>
+<p>This is the path portion matched by a trailing '*' pathterm.</p>
+</dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="dispatch/1">dispatch(Path::string(), DispatchList::[matchterm()]) -&gt; dispterm() | dispfail()</h3>
+
+
+<div class="description"><span id="dispatch-2"> </span>
+
+<p>Interface for URL dispatching.
+  See also http://bitbucket.org/justin/webmachine/wiki/DispatchConfiguration</p>
+</div></div>
+<div class="function">
+<h3 id="dispatch/1-1">dispatch(Host::string(), Path::string(), DispatchList::[matchterm()]) -&gt; dispterm() | dispfail()</h3>
+
+
+<div class="description"><span id="dispatch-3"> </span>
+
+<p>Interface for URL dispatching.
+  See also http://bitbucket.org/justin/webmachine/wiki/DispatchConfiguration</p>
+</div></div></div>
+
+<authors>
+
+<aname>Robert Ahrens</aname>
+<email>rahrens@basho.com</email>
+<aname>Justin Sheehy</aname>
+<email>justin@basho.com</email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#dispatch/1">dispatch/1</a></li><li><a href="#dispatch/1-1">dispatch/1-1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

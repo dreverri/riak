@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>luwak_io (luwak) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>luwak_io</h1>
+<h2 class="modsummary" />
+<div class="description">
+</div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="get_range/1">get_range(Riak::riak(), File::luwak_file(), Start::int(), Length::int()) -&gt; iolist()</h3>
+
+
+<div class="description"><span id="get_range-4"> </span>
+
+<p>Returns an iolist() for the starting offset and length specified.</p>
+</div></div>
+<div class="function">
+<h3 id="put_range/1">put_range(Riak::riak(), File::luwak_file(), Start::int(), Data::binary()) -&gt; {ok, WrittenBlocks, NewFile}</h3>
+
+
+<div class="description"><span id="put_range-4"> </span>
+
+<p>Put range performs a synchronous write operation on the given
+       luwak file.  The write will start at the offset specified by
+       Start and overwrite anything at that position with the
+       contents of Data.  Writes starting beyond the end of the file
+       will occur at the end of the file.  Luwak does not allow for
+       gaps in a file.</p>
+</div></div>
+<div class="function">
+<h3 id="truncate/1">truncate(Riak::riak(), File::luwak_file(), Start::int()) -&gt; {ok, NewFile}</h3>
+
+
+<div class="description"><span id="truncate-3"> </span>
+
+<p>Truncates a file to the specified offset.  All bytes beyond
+       Start will no longer be readable in NewFile.</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#get_range/1">get_range/1</a></li><li><a href="#put_range/1">put_range/1</a></li><li><a href="#truncate/1">truncate/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

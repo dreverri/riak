@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>riak_err_handler (riak_err) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>riak_err_handler</h1>
+<h2 class="modsummary">A memory-limited info/error/warning event handler.</h2>
+<div class="description">
+<p>A memory-limited info/error/warning event handler.</p>
+ 
+  <p>Replace the OTP default error_logger's event handler (which  
+can cause memory use problems when handling very large messages)  
+with a handler that will use a limited amount of RAM but is  
+otherwise equivalent.</p>
+ 
+  <p>If the SASL error logger's <code>sasl_error_logger</code> configuration
+  parameter is set to the <code>{file, FileName}</code> form, then this
+  module will attempt to emulate the SASL error logger's
+  logging-to-file behavior.  However, the interpretation of the
+  <code>errlog_type</code> configuration parameter is limited: if its
+  value is <code>error</code>, then only error and warning messages will
+  be written to the file.  In all other cases (namely
+  <code>progress</code> and <code>all</code>), all events will be formatted
+  and written to the file.
+  </p><ul>
+  <li><p> <em>NOTE:</em> The log file's filehandle will be re-opened once
+                    per second, which will allow log file rotation schemes
+                    to rotate the log file safely without undue worry about
+                    losing log file entries or worrying about sending a
+                    SIGHUP signal to the owner process before rotation. </p></li>
+  </ul></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="add_sup_handler/0">add_sup_handler() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="add_sup_handler-0"> </span>
+
+<p>Add a supervised handler to the OTP kernel's
+       <code>error_logger</code> event server.</p>
+</div></div>
+<div class="function">
+<h3 id="code_change/3">code_change(OldVsn, State, Extra) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="code_change-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="get_state/0">get_state() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_state-0"> </span>
+
+<p>Debugging: get internal state record.</p>
+</div></div>
+<div class="function">
+<h3 id="handle_call/2">handle_call(Request, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="handle_call-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="handle_event/2">handle_event(Event, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="handle_event-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="handle_info/2">handle_info(Info, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="handle_info-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="init/1">init(X1) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="init-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="reopen_log_file/0">reopen_log_file() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="reopen_log_file-0"> </span>
+
+<p>Tell our error handler to reopen the <code>sasl_error_logger</code> file's
+       file handle (e.g., to assist log file rotation schemes).</p>
+</div></div>
+<div class="function">
+<h3 id="set_fmt_max_bytes/1">set_fmt_max_bytes(Num) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_fmt_max_bytes-1"> </span>
+
+<p>Change the internal value of <code>set_fmt_max_bytes</code>.</p>
+</div></div>
+<div class="function">
+<h3 id="set_term_max_size/1">set_term_max_size(Num) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_term_max_size-1"> </span>
+
+<p>Change the internal value of <code>set_term_max_size</code>.</p>
+</div></div>
+<div class="function">
+<h3 id="terminate/2">terminate(Reason, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="terminate-2"> </span>
+ </div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#add_sup_handler/0">add_sup_handler/0</a></li><li><a href="#code_change/3">code_change/3</a></li><li><a href="#get_state/0">get_state/0</a></li><li><a href="#handle_call/2">handle_call/2</a></li><li><a href="#handle_event/2">handle_event/2</a></li><li><a href="#handle_info/2">handle_info/2</a></li><li><a href="#init/1">init/1</a></li><li><a href="#reopen_log_file/0">reopen_log_file/0</a></li><li><a href="#set_fmt_max_bytes/1">set_fmt_max_bytes/1</a></li><li><a href="#set_term_max_size/1">set_term_max_size/1</a></li><li><a href="#terminate/2">terminate/2</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

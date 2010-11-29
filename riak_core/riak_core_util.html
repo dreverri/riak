@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>riak_core_util (riak_core) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>riak_core_util</h1>
+<h2 class="modsummary">Various functions that are useful throughout Riak.</h2>
+<div class="description">
+<p>Various functions that are useful throughout Riak.</p></div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>load_file_response() = {module, Module::atom()} | {error, term()}</code></dt>
+<dd><span id="type-load_file_response"> </span> </dd>
+<dt><code>purge_response() = boolean()</code></dt>
+<dd><span id="type-purge_response"> </span> </dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="chash_bucketonly_keyfun/1">chash_bucketonly_keyfun(BKey::bkey() (see module riak_object)) -&gt; index() (see module chash)</h3>
+
+
+<div class="description"><span id="chash_bucketonly_keyfun-1"> </span>
+
+<p>Object/ring hashing fun that ignores Key, only uses Bucket.</p>
+</div></div>
+<div class="function">
+<h3 id="chash_key/1">chash_key(BKey::bkey() (see module riak_object)) -&gt; index() (see module chash)</h3>
+
+
+<div class="description"><span id="chash_key-1"> </span>
+
+<p>Create a binary used for determining replica placement.</p>
+</div></div>
+<div class="function">
+<h3 id="chash_std_keyfun/1">chash_std_keyfun(BKey::bkey() (see module riak_object)) -&gt; index() (see module chash)</h3>
+
+
+<div class="description"><span id="chash_std_keyfun-1"> </span>
+
+<p>Default object/ring hashing fun, direct passthrough of bkey.</p>
+</div></div>
+<div class="function">
+<h3 id="compare_dates/1">compare_dates(A::string(), B::string()) -&gt; boolean()</h3>
+
+
+<div class="description"><span id="compare_dates-2"> </span>
+
+<p>Compare two RFC1123 date strings or two now() tuples (or one
+       of each).  Return true if date A is later than date B.</p>
+</div></div>
+<div class="function">
+<h3 id="integer_to_list/1">integer_to_list(Integer::integer(), Base::integer()) -&gt; string()</h3>
+
+
+<div class="description"><span id="integer_to_list-2"> </span>
+
+<p>Convert an integer to its string representation in the given
+       base.  Bases 2-62 are supported.</p>
+</div></div>
+<div class="function">
+<h3 id="make_tmp_dir/0">make_tmp_dir() -&gt; string()</h3>
+
+
+<div class="description"><span id="make_tmp_dir-0"> </span>
+
+<p>Create a unique directory in /tmp.  Returns the path
+       to the new directory.</p>
+</div></div>
+<div class="function">
+<h3 id="mkclientid/1">mkclientid(RemoteNode::term()) -&gt; ClientID::list()</h3>
+
+
+<div class="description"><span id="mkclientid-1"> </span>
+
+<p>Create a unique-enough id for vclock clients.</p>
+</div></div>
+<div class="function">
+<h3 id="moment/0">moment() -&gt; integer()</h3>
+
+
+<div class="description"><span id="moment-0"> </span>
+
+<p>Get the current "moment".  Current implementation is the
+       number of seconds from year 0 to now, universal time, in
+       the gregorian calendar.</p>
+</div></div>
+<div class="function">
+<h3 id="reload_all/1">reload_all(Module::atom()) -&gt; [{purge_response(), load_file_response()}]</h3>
+
+
+<div class="description"><span id="reload_all-1"> </span>
+
+<p>Ask each member node of the riak ring to reload the given
+       Module.  Return is a list of the results of code:purge/1
+       and code:load_file/1 on each node.</p>
+</div></div>
+<div class="function">
+<h3 id="rpc_every_member/1">rpc_every_member(Module::atom(), Function::atom(), Args::[term()], Timeout::integer() | infinity) -&gt; {Results::[term()], BadNodes::[node()]}</h3>
+
+
+<div class="description"><span id="rpc_every_member-4"> </span>
+
+<p>Make an RPC call to the given module and function on each
+       member of the cluster.  See rpc:multicall/5 for a description
+       of the return value.</p>
+</div></div>
+<div class="function">
+<h3 id="start_app_deps/1">start_app_deps(App::atom()) -&gt; ok</h3>
+
+
+<div class="description"><span id="start_app_deps-1"> </span>
+
+<p>Start depedent applications of App.</p>
+</div></div>
+<div class="function">
+<h3 id="str_to_node/1">str_to_node(Node) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="str_to_node-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="unique_id_62/0">unique_id_62() -&gt; string()</h3>
+
+
+<div class="description"><span id="unique_id_62-0"> </span>
+
+<p>Create a random identifying integer, returning its string
+       representation in base 62.</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#chash_bucketonly_keyfun/1">chash_bucketonly_keyfun/1</a></li><li><a href="#chash_key/1">chash_key/1</a></li><li><a href="#chash_std_keyfun/1">chash_std_keyfun/1</a></li><li><a href="#compare_dates/1">compare_dates/1</a></li><li><a href="#integer_to_list/1">integer_to_list/1</a></li><li><a href="#make_tmp_dir/0">make_tmp_dir/0</a></li><li><a href="#mkclientid/1">mkclientid/1</a></li><li><a href="#moment/0">moment/0</a></li><li><a href="#reload_all/1">reload_all/1</a></li><li><a href="#rpc_every_member/1">rpc_every_member/1</a></li><li><a href="#start_app_deps/1">start_app_deps/1</a></li><li><a href="#str_to_node/1">str_to_node/1</a></li><li><a href="#unique_id_62/0">unique_id_62/0</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

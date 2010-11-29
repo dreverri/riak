@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>spiraltime (riak_core) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>spiraltime</h1>
+<h2 class="modsummary">A set of sliding windows for recording N-per-second running stats.</h2>
+<div class="description">
+<p>A set of sliding windows for recording N-per-second running stats.</p>
+ 
+  <p>This keeps stats per second for the last minute, per minute for an hour,  
+per hour for a day, and per day for a week.</p>
+ 
+  <p>The goal is not to have "perfect" stats; post-fact log analysis is
+  better for that.  The goal here is to have approximate running
+  data useful for quick understanding of performance trends.</p></div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>count() = integer()</code></dt>
+<dd><span id="type-count"> </span>
+<p>The number of entries recorded in some time period.</p>
+</dd>
+<dt><code>moment() = integer()</code></dt>
+<dd><span id="type-moment"> </span>
+<p>This is a number of seconds, as produced by
+  calendar:datetime_to_gregorian_seconds(calendar:universal_time())</p>
+</dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="fresh/0">fresh() -&gt; spiral()</h3>
+
+
+<div class="description"><span id="fresh-0"> </span>
+
+<p>Create an empty spiral with which to begin recording entries.</p>
+</div></div>
+<div class="function">
+<h3 id="fresh/1">fresh(Moment::moment()) -&gt; spiral()</h3>
+
+
+<div class="description"><span id="fresh-1"> </span>
+
+<p>Create an empty spiral with which to begin recording entries.</p>
+</div></div>
+<div class="function">
+<h3 id="incr/1">incr(N::count(), Spiral::spiral()) -&gt; spiral()</h3>
+
+
+<div class="description"><span id="incr-2"> </span>
+
+<p>Add N to the counter of events, as recently as possible.</p>
+</div></div>
+<div class="function">
+<h3 id="incr/1-1">incr(N::count(), Moment::moment(), Spiral::spiral()) -&gt; spiral()</h3>
+
+
+<div class="description"><span id="incr-3"> </span>
+
+<p>Add N to the counter of events occurring at Moment.</p>
+</div></div>
+<div class="function">
+<h3 id="n/0">n() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="n-0"> </span>
+ </div></div>
+<div class="function">
+<h3 id="rep_day/1">rep_day(Spiral::spiral()) -&gt; {moment(), count()}</h3>
+
+
+<div class="description"><span id="rep_day-1"> </span>
+
+<p>Produce the approximate number of entries recorded in the last day.</p>
+</div></div>
+<div class="function">
+<h3 id="rep_hour/1">rep_hour(Spiral::spiral()) -&gt; {moment(), count()}</h3>
+
+
+<div class="description"><span id="rep_hour-1"> </span>
+
+<p>Produce the approximate number of entries recorded in the last hour.</p>
+</div></div>
+<div class="function">
+<h3 id="rep_minute/1">rep_minute(Spiral::spiral()) -&gt; {moment(), count()}</h3>
+
+
+<div class="description"><span id="rep_minute-1"> </span>
+
+<p>Produce the number of entries recorded in the last minute.</p>
+</div></div>
+<div class="function">
+<h3 id="rep_second/1">rep_second(Spiral::spiral()) -&gt; {moment(), count()}</h3>
+
+
+<div class="description"><span id="rep_second-1"> </span>
+
+<p>Produce the number of entries recorded in the last second.</p>
+</div></div>
+<div class="function">
+<h3 id="rep_week/1">rep_week(Spiral::spiral()) -&gt; {moment(), count()}</h3>
+
+
+<div class="description"><span id="rep_week-1"> </span>
+
+<p>Produce the approximate number of entries recorded in the last week.</p>
+</div></div>
+<div class="function">
+<h3 id="test_spiraltime/0">test_spiraltime() -&gt; term()
+</h3>
+
+
+<div class="description"><span id="test_spiraltime-0"> </span>
+ </div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#fresh/0">fresh/0</a></li><li><a href="#fresh/1">fresh/1</a></li><li><a href="#incr/1">incr/1</a></li><li><a href="#incr/1-1">incr/1-1</a></li><li><a href="#n/0">n/0</a></li><li><a href="#rep_day/1">rep_day/1</a></li><li><a href="#rep_hour/1">rep_hour/1</a></li><li><a href="#rep_minute/1">rep_minute/1</a></li><li><a href="#rep_second/1">rep_second/1</a></li><li><a href="#rep_week/1">rep_week/1</a></li><li><a href="#test_spiraltime/0">test_spiraltime/0</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

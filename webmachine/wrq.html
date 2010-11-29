@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>wrq (webmachine) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>wrq</h1>
+<h2 class="modsummary" />
+<div class="description">
+</div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>reqdata()</code></dt>
+<dd><span id="type-reqdata"> </span>
+<p>The opaque data type used for req/resp data structures.</p>
+</dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="add_note/3">add_note(K, V, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="add_note-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="app_root/1">app_root(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="app_root-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="append_to_resp_body/2">append_to_resp_body(Data, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="append_to_resp_body-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="append_to_response_body/2">append_to_response_body(Data, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="append_to_response_body-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="create/4">create(Method, Version, RawPath, Headers) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="create-4"> </span>
+ </div></div>
+<div class="function">
+<h3 id="disp_path/1">disp_path(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="disp_path-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="do_redirect/2">do_redirect(X1, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="do_redirect-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="fresh_resp_headers/2">fresh_resp_headers(Hdrs, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="fresh_resp_headers-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="get_cookie_value/2">get_cookie_value(Key, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_cookie_value-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="get_notes/1">get_notes(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_notes-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="get_qs_value/2">get_qs_value(Key, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_qs_value-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="get_qs_value/3">get_qs_value(Key, Default, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_qs_value-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="get_req_header/2">get_req_header(HdrName, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_req_header-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="get_resp_header/2">get_resp_header(HdrName, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_resp_header-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="host_tokens/1">host_tokens(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="host_tokens-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="load_dispatch_data/7">load_dispatch_data(PathInfo, HostTokens, Port, PathTokens, AppRoot, DispPath, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="load_dispatch_data-7"> </span>
+ </div></div>
+<div class="function">
+<h3 id="max_recv_body/1">max_recv_body(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="max_recv_body-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="merge_resp_headers/2">merge_resp_headers(Hdrs, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="merge_resp_headers-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="method/1">method(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="method-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="path/1">path(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="path-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="path_info/1">path_info(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="path_info-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="path_info/2">path_info(Key, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="path_info-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="path_tokens/1">path_tokens(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="path_tokens-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="peer/1">peer(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="peer-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="port/1">port(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="port-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="raw_path/1">raw_path(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="raw_path-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="remove_resp_header/2">remove_resp_header(K, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="remove_resp_header-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="req_body/1">req_body(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="req_body-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="req_cookie/1">req_cookie(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="req_cookie-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="req_headers/1">req_headers(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="req_headers-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="req_qs/1">req_qs(RD::reqdata()) -&gt; [{Key, Value}]</h3>
+
+
+<div class="description"><span id="req_qs-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="resp_body/1">resp_body(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="resp_body-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="resp_headers/1">resp_headers(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="resp_headers-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="resp_redirect/1">resp_redirect(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="resp_redirect-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="response_code/1">response_code(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="response_code-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="set_disp_path/2">set_disp_path(P, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_disp_path-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="set_max_recv_body/2">set_max_recv_body(X, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_max_recv_body-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="set_peer/2">set_peer(P, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_peer-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="set_req_body/2">set_req_body(Body, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_req_body-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="set_resp_body/2">set_resp_body(Body, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_resp_body-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="set_resp_header/3">set_resp_header(K, V, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_resp_header-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="set_resp_headers/2">set_resp_headers(Hdrs, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_resp_headers-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="set_response_code/2">set_response_code(Code, RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_response_code-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="stream_req_body/2">stream_req_body(RD, MaxHunk) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="stream_req_body-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="version/1">version(RD) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="version-1"> </span>
+ </div></div></div>
+
+<authors>
+
+<aname>Justin Sheehy</aname>
+<email>justin@basho.com</email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#add_note/3">add_note/3</a></li><li><a href="#app_root/1">app_root/1</a></li><li><a href="#append_to_resp_body/2">append_to_resp_body/2</a></li><li><a href="#append_to_response_body/2">append_to_response_body/2</a></li><li><a href="#create/4">create/4</a></li><li><a href="#disp_path/1">disp_path/1</a></li><li><a href="#do_redirect/2">do_redirect/2</a></li><li><a href="#fresh_resp_headers/2">fresh_resp_headers/2</a></li><li><a href="#get_cookie_value/2">get_cookie_value/2</a></li><li><a href="#get_notes/1">get_notes/1</a></li><li><a href="#get_qs_value/2">get_qs_value/2</a></li><li><a href="#get_qs_value/3">get_qs_value/3</a></li><li><a href="#get_req_header/2">get_req_header/2</a></li><li><a href="#get_resp_header/2">get_resp_header/2</a></li><li><a href="#host_tokens/1">host_tokens/1</a></li><li><a href="#load_dispatch_data/7">load_dispatch_data/7</a></li><li><a href="#max_recv_body/1">max_recv_body/1</a></li><li><a href="#merge_resp_headers/2">merge_resp_headers/2</a></li><li><a href="#method/1">method/1</a></li><li><a href="#path/1">path/1</a></li><li><a href="#path_info/1">path_info/1</a></li><li><a href="#path_info/2">path_info/2</a></li><li><a href="#path_tokens/1">path_tokens/1</a></li><li><a href="#peer/1">peer/1</a></li><li><a href="#port/1">port/1</a></li><li><a href="#raw_path/1">raw_path/1</a></li><li><a href="#remove_resp_header/2">remove_resp_header/2</a></li><li><a href="#req_body/1">req_body/1</a></li><li><a href="#req_cookie/1">req_cookie/1</a></li><li><a href="#req_headers/1">req_headers/1</a></li><li><a href="#req_qs/1">req_qs/1</a></li><li><a href="#resp_body/1">resp_body/1</a></li><li><a href="#resp_headers/1">resp_headers/1</a></li><li><a href="#resp_redirect/1">resp_redirect/1</a></li><li><a href="#response_code/1">response_code/1</a></li><li><a href="#set_disp_path/2">set_disp_path/2</a></li><li><a href="#set_max_recv_body/2">set_max_recv_body/2</a></li><li><a href="#set_peer/2">set_peer/2</a></li><li><a href="#set_req_body/2">set_req_body/2</a></li><li><a href="#set_resp_body/2">set_resp_body/2</a></li><li><a href="#set_resp_header/3">set_resp_header/3</a></li><li><a href="#set_resp_headers/2">set_resp_headers/2</a></li><li><a href="#set_response_code/2">set_response_code/2</a></li><li><a href="#stream_req_body/2">stream_req_body/2</a></li><li><a href="#version/1">version/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>merkerl (riak_core) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>merkerl</h1>
+<h2 class="modsummary">An implementation of Merkle Trees for anti-entropy.</h2>
+<div class="description">
+<p>An implementation of Merkle Trees for anti-entropy.</p>
+ 
+  <p>Intended use is for synchronizing two key/value stores with similar but  
+potentially-divergent content.</p>
+ 
+  <p>Typical usage is when a pair (or more) of nodes or systems have views of a  
+set of key/value objects which can change independently.  Whenever a new  
+object is created or an existing one is modified (there is no difference from  
+the merkle point of view) the node seeing the change performs an insert/2 to  
+record the change.  At any time, one node can send a representation of its  
+tree to another node.  The receiving node can diff/2 the trees to see which  
+objects differ on the two systems.  From this information, a system knows  
+exactly which objects to send or request in order to converge toward a common  
+view of the world.  Of course, if the objects contain versioning information  
+it will be much easier to resolve which node's view for any given object is  
+newer.</p>
+ 
+  <p>See the code of merkle_test/0 for trivial example usage.</p>
+ 
+  <p>Application usage note: the 'crypto' OTP application must be started before
+  any of this module's functions will work.
+ </p></div>
+<div class="section"><h4>DATA TYPES</h4><span id="types"> </span>
+
+<dl>
+<dt><code>hash() = binary()</code></dt>
+<dd><span id="type-hash"> </span>
+<p>This is a hash representing a unique content value for an object
+ tracked by a Merkle tree.
+ It should change if the object it references changes in value.
+ It is expected to be a 160b binary, as produced by
+ crypto:sha/1 -- crypto:sha(term_to_binary(value)) is the canonical
+ way to produce a hash().</p>
+</dd>
+<dt><code>key() = binary()</code></dt>
+<dd><span id="type-key"> </span>
+<p>This is the key, or "name" for an object tracked by a Merkle tree.
+ It should remain constant through changes to the object it references.
+ It is expected to be a 160b binary, as produced by
+ crypto:sha/1 -- if the natural names of objects are not such values,
+ then simply crypto:sha(term_to_binary(the-name&gt;).</p>
+</dd>
+<dt><code>tree() = treeleaf() | treeinner() | undefined</code></dt>
+<dd><span id="type-tree"> </span>
+<p>The tree() type here is used as the internal representation of
+ a Merkle tree.  It can be used locally with insert/2 or pickled
+ via term_to_binary and inverse for use remotely in diff/2.</p>
+</dd>
+<dt><code>treeinner() = term()</code></dt>
+<dd><span id="type-treeinner"> </span>
+<p>Not externally useful, this is one of two record types making up tree().</p>
+</dd>
+<dt><code>treeleaf() = term()</code></dt>
+<dd><span id="type-treeleaf"> </span>
+<p>Not externally useful, this is one of two record types making up tree().</p>
+</dd>
+</dl></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="allkeys/1">allkeys(Tree) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="allkeys-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="build_tree/1">build_tree(KHL) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="build_tree-1"> </span>
+
+<p>Build a Merkle tree from a list of KH's of objects.</p>
+</div></div>
+<div class="function">
+<h3 id="delete/2">delete(Key, Tree) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="delete-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="diff/1">diff(X::tree(), TreeB::tree()) -&gt; [key()]</h3>
+
+
+<div class="description"><span id="diff-2"> </span>
+
+<p>Find the keys of objects which differ between the two trees.</p>
+
+ <p>For this purpose, "differ" means that an object either exists in 
+only one of the two trees or it exists in both but with different 
+hash() values.</p>
+
+ No information about the differing objects is provided except the keys.
+ (Objects with vector-clock versioning are helpful here)
+</div></div>
+<div class="function">
+<h3 id="insert/2">insert(X1, T) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="insert-2"> </span>
+
+<p>Insert the KH for a new or changed object into T.</p>
+
+ This is used much like a typical tree-insert function.
+ To create a new tree, this can be called with T set to the atom 'undefined'.
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#allkeys/1">allkeys/1</a></li><li><a href="#build_tree/1">build_tree/1</a></li><li><a href="#delete/2">delete/2</a></li><li><a href="#diff/1">diff/1</a></li><li><a href="#insert/2">insert/2</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

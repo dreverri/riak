@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>riak_core_claim (riak_core) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>riak_core_claim</h1>
+<h2 class="modsummary">The default functions used for claiming partition ownership.</h2>
+<div class="description">
+<p>The default functions used for claiming partition ownership.  Generally,
+       a wants_claim function should return either {yes, Integer} or 'no' where
+       Integer is the number of additional partitions wanted by this node.  A
+       choose_claim function should return a riak_core_ring with more
+       partitions claimed by this node than in the input ring.</p></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="claim_rebalance_n/2">claim_rebalance_n(Ring, Node) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="claim_rebalance_n-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="default_choose_claim/1">default_choose_claim(Ring::riak_core_ring()) -&gt; riak_core_ring()</h3>
+
+
+<div class="description"><span id="default_choose_claim-1"> </span>
+
+<p>Choose a partition at random.</p>
+</div></div>
+<div class="function">
+<h3 id="default_choose_claim/2">default_choose_claim(Ring, Node) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="default_choose_claim-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="default_wants_claim/1">default_wants_claim(Ring::riak_core_ring()) -&gt; {yes, integer()} | no</h3>
+
+
+<div class="description"><span id="default_wants_claim-1"> </span>
+
+<p>Want a partition if we currently have less than floor(ringsize/nodes).</p>
+</div></div>
+<div class="function">
+<h3 id="never_wants_claim/1">never_wants_claim(X1::riak_core_ring()) -&gt; no</h3>
+
+
+<div class="description"><span id="never_wants_claim-1"> </span>
+
+<p>For use by nodes that should not claim any partitions.</p>
+</div></div>
+<div class="function">
+<h3 id="random_choose_claim/1">random_choose_claim(Ring) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="random_choose_claim-1"> </span>
+ </div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#claim_rebalance_n/2">claim_rebalance_n/2</a></li><li><a href="#default_choose_claim/1">default_choose_claim/1</a></li><li><a href="#default_choose_claim/2">default_choose_claim/2</a></li><li><a href="#default_wants_claim/1">default_wants_claim/1</a></li><li><a href="#never_wants_claim/1">never_wants_claim/1</a></li><li><a href="#random_choose_claim/1">random_choose_claim/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

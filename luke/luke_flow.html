@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>luke_flow (luke) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>luke_flow</h1>
+<h2 class="modsummary">Manages the execution of a flow.</h2>
+<div class="description">
+<p>Manages the execution of a flow</p></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="add_inputs/1">add_inputs(FlowPid::pid(), Inputs::any()) -&gt; ok</h3>
+
+
+<div class="description"><span id="add_inputs-2"> </span>
+
+<p>Add inputs to the flow. Inputs will be sent to the
+       first phase</p>
+</div></div>
+<div class="function">
+<h3 id="code_change/4">code_change(OldVsn, StateName, State, Extra) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="code_change-4"> </span>
+ </div></div>
+<div class="function">
+<h3 id="collect_output/1">collect_output(FlowId::any(), Timeout::integer()) -&gt; [any()] | {error, any()}</h3>
+
+
+<div class="description"><span id="collect_output-2"> </span>
+
+<p>Collects flow output. This function will block
+       until the flow completes or exceeds the flow_timeout.</p>
+</div></div>
+<div class="function">
+<h3 id="executing/2">executing(X1, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="executing-2"> </span>
+ </div></div>
+<div class="function">
+<h3 id="executing/3">executing(X1, From, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="executing-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="finish_inputs/1">finish_inputs(FlowPid::pid()) -&gt; ok</h3>
+
+
+<div class="description"><span id="finish_inputs-1"> </span>
+
+<p>Informs the phases all inputs are complete.</p>
+</div></div>
+<div class="function">
+<h3 id="get_phases/1">get_phases(FlowPid::pid()) -&gt; [pid()]</h3>
+
+
+<div class="description"><span id="get_phases-1"> </span>
+
+<p>Returns the pids for each phase. Intended for
+       testing only</p>
+</div></div>
+<div class="function">
+<h3 id="handle_event/3">handle_event(Event, StateName, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="handle_event-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="handle_info/3">handle_info(Info, StateName, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="handle_info-3"> </span>
+ </div></div>
+<div class="function">
+<h3 id="handle_sync_event/4">handle_sync_event(Event, From, StateName, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="handle_sync_event-4"> </span>
+ </div></div>
+<div class="function">
+<h3 id="init/1">init(X1) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="init-1"> </span>
+ </div></div>
+<div class="function">
+<h3 id="start_link/5">start_link(Client, FlowId, FlowDesc, FlowTransformer, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="start_link-5"> </span>
+ </div></div>
+<div class="function">
+<h3 id="terminate/3">terminate(Reason, StateName, State) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="terminate-3"> </span>
+ </div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#add_inputs/1">add_inputs/1</a></li><li><a href="#code_change/4">code_change/4</a></li><li><a href="#collect_output/1">collect_output/1</a></li><li><a href="#executing/2">executing/2</a></li><li><a href="#executing/3">executing/3</a></li><li><a href="#finish_inputs/1">finish_inputs/1</a></li><li><a href="#get_phases/1">get_phases/1</a></li><li><a href="#handle_event/3">handle_event/3</a></li><li><a href="#handle_info/3">handle_info/3</a></li><li><a href="#handle_sync_event/4">handle_sync_event/4</a></li><li><a href="#init/1">init/1</a></li><li><a href="#start_link/5">start_link/5</a></li><li><a href="#terminate/3">terminate/3</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+
